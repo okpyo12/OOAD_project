@@ -13,12 +13,6 @@ class UserController(User):
 
     def plusCarNum(self):
         self.user.setCarNum(self.user.getCarNumber() + 1)
-
-    def userParking(self):
-        if self.user.getParking() == False:
-            self.user.setParking()
-        else:
-            return "이미 주자중입니다."
     
     def savingDB(self, num):
         self.user.saveDB(num)

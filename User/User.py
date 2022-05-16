@@ -12,6 +12,3 @@ class User:
 
     def getParking(self):
         return self.parking
-
-    def setParking(self):
-        self.parking = not self.parking
