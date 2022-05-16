@@ -1,13 +1,9 @@
-from CarDB.CarDB import CarDB
 from Manager.Manager import Manager
-from CarDB.CarDBController import CarDBController
 
 class ManagerController(Manager):
 
     def __init__(self):
         self.manager = Manager()
-        self.carDB = CarDB()
-        self.carDBController = CarDBController()
 
     def settingFixedCarNum(self, carnum):
         self.manager.setFixedCar(carnum)

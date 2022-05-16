@@ -12,7 +12,7 @@ class CarDBController(CarDB):
         return self.carDB.getCarNum()
 
     def settingCarlotNum(self, parkinglotnum):
-        self.carDB.setCarlotNumm(parkinglotnum)
+        self.carDB.setCarlotNum(parkinglotnum)
 
     def gettingCarlotNum(self):
         return self.carDB.getCarlotNum()

@@ -11,7 +11,7 @@ class CarDB:
     def getCarNum(self):
         return self.CarNum
 
-    def setCarlotNumm(self, parkinglotnum):
+    def setCarlotNum(self, parkinglotnum):
         self.CarlotNum = str(parkinglotnum)
 
     def getCarlotNum(self):
