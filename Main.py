@@ -1,6 +1,4 @@
-from re import T
 import sys
-from time import process_time_ns
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QInputDialog, QTableWidgetItem
 from PyQt5 import QtWidgets
@@ -360,6 +358,9 @@ class ManagerWindow(QMainWindow):
         self.addbtn.clicked.connect(self.addfixedcar)
         self.delbtn.clicked.connect(self.delfixedcar)
 
+    def mainmenuBtn(self):
+        widget.setCurrentIndex(widget.currentIndex()-2)
+
     def addfixedcar(self):
         if self.fixedcarnum.toPlainText() and self.fixedcarlotnum.toPlainText():
             if (self.mc.insertFixedCarDB(self.fixedcarnum.toPlainText(), self.fixedcarlotnum.toPlainText())):
@@ -403,9 +404,6 @@ class ManagerWindow(QMainWindow):
         for i in range(len(self.mc.gettingFixedCarDB())):
             for j in range(2):
                 self.FixedCarList.setItem(i,j,QTableWidgetItem(self.mc.gettingFixedCarDB()[i][j]))
-
-    def mainmenuBtn(self):
-        widget.setCurrentIndex(widget.currentIndex()-2)
 
 if __name__ == "__main__" :
     app = QApplication(sys.argv)
