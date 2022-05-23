@@ -19,10 +19,21 @@ class MainWindow(QMainWindow):
     def parkingBtn(self):
         widget.setCurrentIndex(widget.currentIndex()+1)
         
-        
     def managerBtn(self):
-        widget.setCurrentIndex(widget.currentIndex()+2)
+        if (self.checkmanager()):
+            widget.setCurrentIndex(widget.currentIndex()+2)
+        else:
+            QMessageBox.information(self,'Information Title','관리자 번호가 아닙니다.')
 
+    def checkmanager(self):
+        text, ok = QInputDialog.getText(self, 'Input ManagerID', '관리자 번호를 입력해주세요:')
+        with open("ManagerID.txt", 'r+') as f:
+            ID = f.readline()
+        if text == ID:
+            return True
+        else:
+            return False
+        
 class ParkingWindow(QMainWindow) :    
     def __init__(self) :
         super(ParkingWindow, self).__init__()
@@ -379,7 +390,7 @@ class ManagerWindow(QMainWindow):
     
     def delfixedcar(self):
         if self.fixedcarnum.toPlainText() and self.fixedcarlotnum.toPlainText():
-            if (self.mc.deleteFixecCarDB(self.fixedcarnum.toPlainText(), self.fixedcarlotnum.toPlainText())):
+            if (self.mc.deleteFixedCarDB(self.fixedcarnum.toPlainText(), self.fixedcarlotnum.toPlainText())):
                 QMessageBox.information(self,'Information Title','고정 주차 차량이 삭제되었습니다.')
                 self.showfixedcar()
                 self.fixedcarnum.clear()

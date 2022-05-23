@@ -68,7 +68,7 @@ class ManagerController(Manager):
             self.settingFixedCarlotNum('')
             return False
     
-    def deleteFixecCarDB(self, carnum, parkinglotnum):
+    def deleteFixedCarDB(self, carnum, parkinglotnum):
         self.settingFixedCarNum(carnum)
         self.settingFixedCarlotNum(parkinglotnum)
         checknum = 0
